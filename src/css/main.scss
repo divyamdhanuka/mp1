@@ -49,6 +49,7 @@ body {
   color: $text;
   background: $bg;
   line-height: 1.6;
+  padding-top: var(--nav-h, 64px);
 }
 .section {
   width: 100%;
@@ -97,22 +98,25 @@ h3 {
   position: relative;
 }
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
-  gap: $space-3;
+  gap: 1rem;
   background: rgba(11, 13, 20, 0.8);
   backdrop-filter: blur(10px);
-  padding: $space-3;
+  padding: 1rem;
   transition: all 0.25s;
 }
 .navbar.shrink {
-  padding: $space-2 $space-3;
+  padding: 0.5rem 1rem;
   background: rgba(11, 13, 20, 0.92);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -186,7 +190,37 @@ h3 {
     display: none;
   }
 }
+.navbar {
+  padding: 1.5rem 1.25rem;
+  gap: 1.25rem;
+}
+.navbar .brand {
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+.navbar .icon {
+  width: 34px;
+  height: 34px;
+  transition: transform 0.25s;
+}
+.navlist a {
+  font-size: 1.05rem;
+}
 
+.navbar.shrink {
+  padding: 0.55rem 1rem;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+.navbar.shrink .brand {
+  font-size: 1.05rem;
+}
+.navbar.shrink .icon {
+  width: 24px;
+  height: 24px;
+}
+.navbar.shrink .navlist a {
+  font-size: 0.95rem;
+}
 .hero {
   position: relative;
   min-height: 88vh;
@@ -265,22 +299,27 @@ h3 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   border: 0;
-  background: rgba(0, 0, 0, 0.35);
-  color: $text;
-  width: 42px;
-  height: 42px;
   border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 24px;
   cursor: pointer;
 }
 .carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.65);
 }
-.carousel .prev {
-  left: $space-3;
+.carousel-btn.prev {
+  left: 0.75rem;
 }
-.carousel .next {
-  right: $space-3;
+.carousel-btn.next {
+  right: 0.75rem;
 }
 
 .parallax {
