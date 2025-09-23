@@ -1,1 +1,404 @@
-/* Your SCSS here. */
+$font: 'Inter', system-ui, Arial, sans-serif;
+$bg: #0b0d14;
+$surface: #161a24;
+$text: #e6e9ef;
+$muted: #aab2c5;
+$red: #ff4d4f;
+$blue: #2aa9ff;
+$space-2: 0.5rem;
+$space-3: 1rem;
+$space-4: 1.5rem;
+$space-5: 2rem;
+$space-6: 3rem;
+$radius: 0.9rem;
+$shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+$bp-sm: 768px;
+$bp-md: 1024px;
+$bp-lg: 1280px;
+
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $space-3;
+}
+@mixin respond($bp) {
+  @if $bp == sm {
+    @media (max-width: $bp-sm) {
+      @content;
+    }
+  } @else if $bp == md {
+    @media (max-width: $bp-md) {
+      @content;
+    }
+  } @else if $bp == lg {
+    @media (max-width: $bp-lg) {
+      @content;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: $font;
+  color: $text;
+  background: $bg;
+  line-height: 1.6;
+}
+.section {
+  width: 100%;
+  padding: $space-6 0;
+}
+.container {
+  @include container;
+}
+h1,
+h2,
+h3 {
+  margin: 0 0 $space-3 0;
+  line-height: 1.2;
+}
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+h3 {
+  font-size: 1.1rem;
+}
+.lead {
+  color: $muted;
+}
+.btn {
+  display: inline-block;
+  border: 2px solid $red;
+  padding: 0.6rem 1rem;
+  border-radius: 0.7rem;
+  color: $text;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s, background-color 0.2s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 77, 79, 0.12);
+}
+.btn.ghost {
+  border-color: $blue;
+}
+
+.header {
+  position: relative;
+}
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  background: rgba(11, 13, 20, 0.8);
+  backdrop-filter: blur(10px);
+  padding: $space-3;
+  transition: all 0.25s;
+}
+.navbar.shrink {
+  padding: $space-2 $space-3;
+  background: rgba(11, 13, 20, 0.92);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  color: $text;
+  text-decoration: none;
+  font-weight: 800;
+}
+.icon {
+  width: 26px;
+  height: 26px;
+  fill: $red;
+}
+
+.navlist {
+  display: flex;
+  list-style: none;
+  gap: $space-3;
+  margin: 0;
+  padding: 0;
+}
+.navlist a {
+  color: $muted;
+  text-decoration: none;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.5rem;
+  transition: color 0.2s, background-color 0.2s;
+}
+.navlist a.active,
+.navlist a:hover {
+  color: $text;
+  background: rgba(255, 255, 255, 0.08);
+}
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: $text;
+}
+.position-indicator {
+  margin-left: auto;
+  width: 120px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.position-indicator .bar {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, $red, $blue);
+  transition: width 0.15s;
+}
+@include respond(sm) {
+  .navlist {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+  .navlist.open {
+    display: flex;
+  }
+  .nav-toggle {
+    display: inline-block;
+  }
+  .position-indicator {
+    display: none;
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+.accent {
+  color: $red;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+      600px 400px at 20% 20%,
+      rgba(255, 77, 79, 0.18),
+      transparent
+    ),
+    radial-gradient(
+      600px 400px at 80% 40%,
+      rgba(42, 169, 255, 0.16),
+      transparent
+    );
+}
+.features .columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-4;
+}
+@include respond(md) {
+  .features .columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@include respond(sm) {
+  .features .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gallery .carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  background: $surface;
+}
+.carousel .track {
+  display: flex;
+  transition: transform 0.35s ease;
+  outline: none;
+}
+.carousel .slide {
+  min-width: 100%;
+  margin: 0;
+}
+.carousel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.carousel figcaption {
+  padding: $space-3;
+  color: $muted;
+  background: rgba(0, 0, 0, 0.25);
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: rgba(0, 0, 0, 0.35);
+  color: $text;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.55);
+}
+.carousel .prev {
+  left: $space-3;
+}
+.carousel .next {
+  right: $space-3;
+}
+
+.parallax {
+  background-image: url('../assets/spidey-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 60vh;
+}
+.center-vert {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.video video {
+  width: 100%;
+  max-width: 960px;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  background: #000;
+}
+.video .note {
+  color: $muted;
+}
+
+.about p,
+.features p {
+  color: $muted;
+}
+
+.contact-form {
+  display: grid;
+  gap: $space-3;
+  max-width: 720px;
+}
+.form-row {
+  display: grid;
+  gap: $space-2;
+}
+input,
+textarea {
+  background: $surface;
+  color: $text;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.7rem;
+  padding: 0.75rem 1rem;
+}
+
+.social {
+  list-style: none;
+  padding: 0;
+  margin: $space-5 0 0;
+  display: flex;
+  gap: $space-3;
+}
+.social a {
+  color: $text;
+}
+.social .icon {
+  transition: transform 0.2s;
+}
+.social a:hover .icon {
+  transform: translateY(-2px);
+}
+
+.footer {
+  background: $surface;
+  padding: $space-4 0;
+}
+.footer p {
+  margin: 0;
+  color: $muted;
+}
+
+.modal[aria-hidden='true'] {
+  display: none;
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+}
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.modal__dialog {
+  position: relative;
+  margin: 10vh auto;
+  max-width: 560px;
+  background: $surface;
+  border-radius: $radius;
+  padding: $space-5;
+  box-shadow: $shadow;
+  animation: pop 0.2s ease;
+}
+@keyframes pop {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}

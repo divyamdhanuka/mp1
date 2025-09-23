@@ -1,13 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
-    </head>
-    <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spider-Verse • One Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="top" class="header">
+      <nav class="navbar" aria-label="Primary">
+        <a class="brand" href="#top" aria-label="Home">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 2l2 4 3-2 1 2-3 2 4 1-1 2-4-1 2 3-2 1-2-3-2 3-2-1 2-3-4 1-1-2 4-1-3-2 1-2 3 2 2-4z"
+            />
+          </svg>
+          <span>Spider-Verse</span>
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">
+          Menu
+        </button>
+        <ul id="menu" class="navlist">
+          <li><a href="#hero" data-nav>Home</a></li>
+          <li><a href="#features" data-nav>Powers</a></li>
+          <li><a href="#gallery" data-nav>Gallery</a></li>
+          <li><a href="#video" data-nav>Clip</a></li>
+          <li><a href="#about" data-nav>Lore</a></li>
+          <li><a href="#contact" data-nav>Contact</a></li>
+        </ul>
+        <div class="position-indicator" aria-hidden="true">
+          <span class="bar"></span>
+        </div>
+      </nav>
+
+      <section id="hero" class="section hero">
+        <div class="container hero-inner">
+          <h1>
+            With great power comes great
+            <span class="accent">responsibility</span>
+          </h1>
+          <p class="lead">Welcome to a tiny tour of the Spider-Verse.</p>
+          <div class="cta">
+            <a href="#features" class="btn">See powers</a>
+            <button class="btn ghost" data-open="modal-announce">
+              Open message
+            </button>
+          </div>
+        </div>
+        <div class="hero-bg" aria-hidden="true"></div>
+      </section>
+    </header>
+
+    <main>
+      <section id="features" class="section features">
+        <div class="container">
+          <h2>Spider Abilities</h2>
+          <div class="columns">
+            <div>
+              <h3>Wall-Crawling</h3>
+              <p>
+                Static adhesion lets Spidey scale glass, steel, and brick with
+                ease.
+              </p>
+            </div>
+            <div>
+              <h3>Spider-Sense</h3>
+              <p>
+                A danger precog that tingles before trouble. Helps with dodges
+                mid-swing.
+              </p>
+            </div>
+            <div>
+              <h3>Web Shooters</h3>
+              <p>
+                Home-built cartridges. Uses web lines for swinging, traps, and
+                web-nets.
+              </p>
+            </div>
+            <div>
+              <h3>Strength & Agility</h3>
+              <p>Lifts cars, sprints up façades, and lands like a cat.</p>
+            </div>
+            <div>
+              <h3>Costumes</h3>
+              <p>
+                From classic red-blue to Miles’s black-red, each suit fits a
+                different Spider.
+              </p>
+            </div>
+            <div>
+              <h3>Allies</h3>
+              <p>
+                MJ, Aunt May, Gwen, and a multiverse of Spider-people backing
+                him up.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section gallery">
+        <div class="container">
+          <h2>Moments</h2>
+          <div class="carousel" aria-roledescription="carousel">
+            <button class="carousel-btn prev" aria-label="Previous slide">
+              &#10094;
+            </button>
+            <div class="track" tabindex="0">
+              <figure class="slide current">
+                <img
+                  src="../src/assets/spidey1.jpg"
+                  alt="A heavy choice in Spider-Man’s story"
+                />
+                <figcaption>Hard choices define heroes.</figcaption>
+              </figure>
+              <figure class="slide">
+                <img
+                  src="../src/assets/spidey2.jpg"
+                  alt="Miles Morales swinging through the city"
+                />
+                <figcaption>Miles finds his own rhythm.</figcaption>
+              </figure>
+              <figure class="slide">
+                <img
+                  src="../src/assets/spidey3.jpg"
+                  alt="Classic Spider-Man web-swinging"
+                />
+                <figcaption>Whole bunch of Spider-Man’s.</figcaption>
+              </figure>
+            </div>
+            <button class="carousel-btn next" aria-label="Next slide">
+              &#10095;
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="parallax"
+        class="section parallax"
+        aria-label="Fixed background section"
+      >
+        <div class="container center-vert">
+          <h2>New York Skyline</h2>
+          <p>Home base for friendly neighborhood patrols.</p>
+        </div>
+      </section>
+
+      <section id="video" class="section video">
+        <div class="container">
+          <h2>Live action Spider-Man swinging</h2>
+          <video controls width="960" poster="../src/assets/spidey1.jpg">
+            <source src="../src/assets/spidey.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+
+      <section id="about" class="section about">
+        <div class="container">
+          <h2>Lore</h2>
+          <p>
+            Peter Parker starts the legend. Others pick up the mask: Gwen Stacy,
+            Miles Morales, Miguel O’Hara, and more. Different worlds, same
+            mission protect the people.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="container">
+          <h2>Contact the Bugle</h2>
+          <form
+            class="contact-form"
+            onsubmit="return false"
+            aria-label="Contact form"
+          >
+            <div class="form-row">
+              <label for="name">Name</label><input id="name" required />
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label
+              ><input id="email" type="email" required />
+            </div>
+            <div class="form-row">
+              <label for="msg">Tip</label
+              ><textarea id="msg" rows="4" required></textarea>
+            </div>
+            <button class="btn" type="submit">Send tip</button>
+          </form>
+
+          <ul class="social" aria-label="Spider-links">
+            <li>
+              <a href="#" aria-label="GitHub">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-2c-3.3.7-4-1.6-4-1.6-.6-1.6-1.4-2-1.4-2-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.2a11.7 11.7 0 0 1 6.2 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.3 5.9.5.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A12 12 0 0 0 12 .5z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="LinkedIn">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5C4.98 4.9 3.9 6 2.5 6S0 4.9 0 3.5 1.1 1 2.5 1s2.48 1.1 2.48 2.5zM0 8.98h5V24H0zM8.5 8.98H13V11h.1c.6-1.1 2.3-2.3 4.7-2.3 5 0 5.9 3.2 5.9 7.3V24h-5v-6.9c0-1.6 0-3.6-2.2-3.6s-2.6 1.7-2.6 3.5V24h-5z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Twitter">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M23.4 4.8a9.3 9.3 0 0 1-2.7.8 4.6 4.6 0 0 0 2-2.6 9.2 9.2 0 0 1-2.9 1.1A4.6 4.6 0 0 0 11.6 8a13 13 0 0 1-9.4-4.7 4.5 4.5 0 0 0 1.4 6.1 4.6 4.6 0 0 1-2.1-.6v.1a4.6 4.6 0 0 0 3.7 4.5 4.7 4.7 0 0 1-2.1.1 4.6 4.6 0 0 0 4.3 3.2A9.2 9.2 0 0 1 0 20.6 13 13 0 0 0 7 22.5c8.4 0 13-7 13-13v-.6a9.3 9.3 0 0 0 3.4-3z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Spider-Verse</p>
+      </div>
+    </footer>
+
+    <div
+      id="modal-announce"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal__dialog" role="document">
+        <h3 id="modal-title">From Aunt May</h3>
+        <p>“When you help someone, you help everyone.” Press ESC to close.</p>
+        <button class="btn" data-close>Close</button>
+      </div>
+      <div
+        class="modal__backdrop"
+        data-close
+        tabindex="-1"
+        aria-hidden="true"
+      ></div>
+    </div>
+  </body>
 </html>
